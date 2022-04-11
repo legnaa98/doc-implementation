@@ -1,5 +1,4 @@
 from scipy.stats import norm as dist_model
-from numpy import round, max
 import numpy as np
 
    
@@ -42,5 +41,5 @@ def compute_threshold(mu_stds, alpha=3):
     class_thresholds : list
         list of every threshold for every class
     """
-    class_thresholds = [max([0.5, 1 - alpha * std[1]]) for std in mu_stds]
-    return round(class_thresholds, 4)
+    class_thresholds = [np.max([0.5, 1 - alpha * std[1]]) for std in mu_stds]
+    return np.round(class_thresholds, 4)
